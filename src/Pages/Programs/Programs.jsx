@@ -1,5 +1,5 @@
 import React from "react";
-
+import AnimatedSection from "../../Components/Animations/Animatedsection";
 const PROGRAMS = [
   {
     name: "Classmate",
@@ -34,7 +34,7 @@ const PROGRAMS = [
 export default function Programs() {
   return (
     <main className="bg-gradient-teal-400 min-h-screen font-sans text-gray-800">
-      <section className="container mx-auto px-6 py-24">
+       <AnimatedSection className="container mx-auto px-6 py-24">
         <h1 className="text-5xl font-extrabold text-center mb-6">
           Our Programs & Pricing
         </h1>
@@ -76,7 +76,7 @@ export default function Programs() {
             </div>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
     </main>
   );
 }

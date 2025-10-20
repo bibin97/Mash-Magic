@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png"; // Correct relative path
-
+import AnimatedSection from "../Animations/Animatedsection";
 export default function Navbar() {
   const navItems = [
     { name: "Home", target: "home" },
@@ -13,7 +13,14 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-teal-800 shadow z-50 flex justify-between items-center px-8 py-4">
+    <AnimatedSection
+      className="fixed top-0 w-full bg-teal-800 shadow z-50 flex justify-between items-center px-8 py-4"
+      delay={0}
+      initial={{ opacity: 0, y: -40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       {/* Logo */}
       <div className="flex items-center">
         <img src={logo} alt="MASH MAGIC" className="h-9 mr-4" />
@@ -40,6 +47,6 @@ export default function Navbar() {
       >
         Book a Free Demo
       </a>
-    </nav>
+    </AnimatedSection>
   );
 }

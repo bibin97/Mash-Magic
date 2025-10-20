@@ -48,7 +48,7 @@ export default function Contact() {
             Track attendance, performance, and exam results instantly with a clear dashboard.
           </p>
         </div>
-        <div className="bg-white/70 p-8 rounded-2xl shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500">
+        <div className="bg-white/70 p-8 rounded-2xl shadow-md transform hover:scale-105 hover:-translate-y-2 transition-all duration-500">
           <h3 className="text-2xl font-bold mb-4 text-black">Weekly Updates</h3>
           <p className="text-black mb-4">
             Stay informed with weekly updates directly to your email. Transparent communication is our priority.
@@ -84,7 +84,7 @@ export default function Contact() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="p-3 rounded-xl bg-gray-100 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-700"
+            className="p-3 rounded-xl bg-teal-100 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
           />
           <input
             type="email"
@@ -93,7 +93,7 @@ export default function Contact() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="p-3 rounded-xl bg-gray-100 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-700"
+            className="p-3 rounded-xl bg-teal-100 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
           />
           <textarea
             name="message"
@@ -102,7 +102,7 @@ export default function Contact() {
             onChange={handleChange}
             required
             rows={5}
-            className="p-3 rounded-xl bg-gray-100 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-700"
+            className="p-3 rounded-xl bg-teal-100 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
           ></textarea>
           <button
             type="submit"

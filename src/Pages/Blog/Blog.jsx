@@ -1,5 +1,5 @@
 import React from "react";
-
+import AnimatedSection from "../../Components/Animations/Animatedsection";
 // Sample blog posts
 const BLOG_POSTS = [
   {
@@ -36,17 +36,14 @@ const BLOG_POSTS = [
 
 export default function Blog() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#e0f7fa] to-[#fff] py-14 px-6 font-sans">
-      {/* Blog Header */}
-      <div className="max-w-6xl mx-auto mb-12 text-center">
-        <h1 className="text-5xl font-extrabold text-teal-900 mb-4">MashMagic Blog</h1>
+     <main className="min-h-screen bg-gradient-to-br from-[#e0f7fa] to-[#fff] py-14 px-6 font-sans">
+      <AnimatedSection className="max-w-6xl mx-auto mb-12 text-center">
+        <h1 className="text-5xl font-extrabold text-teal-900 mb-4">Blogs</h1>
         <p className="text-lg text-gray-700">
           Insights and inspiration for parents, students, and educators.
         </p>
-      </div>
-
-      {/* Blog Cards */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      </AnimatedSection>
+      <AnimatedSection className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {BLOG_POSTS.map((post, idx) => (
           <a
             href={post.link}
@@ -70,7 +67,7 @@ export default function Blog() {
             </div>
           </a>
         ))}
-      </div>
-    </section>
+      </AnimatedSection>
+    </main>
   );
 }

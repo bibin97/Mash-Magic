@@ -12,6 +12,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import AnimatedSection from "../../Components/Animations/Animatedsection.jsx";
 import dashboardMock from "../../assets/dashboard-mockup.jpg"; // Replace with your actual dashboard image
 
 // Chart data
@@ -181,21 +182,23 @@ function ParentsValueSection() {
 // ✅ Results Main Page
 export default function Results() {
   return (
-    <main className="min-h-screen bg-gradient-teal-50 font-sans text-gray-800 flex flex-col items-center py-16">
-      <h1 className="text-5xl font-extrabold mb-8 text-center">Student Results</h1>
+     <main className="min-h-screen bg-gradient-teal-50 font-sans text-gray-800 flex flex-col items-center py-16">
+      <AnimatedSection className="w-full">
+        <h1 className="text-5xl font-extrabold mb-15 text-center">Student Results</h1>
+      </AnimatedSection>
 
-      {/* Graph + Testimonials */}
-      <div className="container mx-auto flex flex-col lg:flex-row gap-8 px-6">
-        <div className="lg:w-1/2 flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-4">Before → After Progress</h2>
-          <BarGraph />
+      <AnimatedSection className="w-full">
+        <div className="container mx-auto flex flex-col lg:flex-row gap-8 px-6">
+          <div className="lg:w-1/2 flex flex-col items-center">
+            <h2 className="text-2xl font-bold mb-4">Before → After Progress</h2>
+            <BarGraph />
+          </div>
+          <div className="lg:w-1/2 flex flex-col items-center">
+            <h2 className="text-2xl font-bold mb-4">Parent Testimonials</h2>
+            <TestimonialsCarousel />
+          </div>
         </div>
-
-        <div className="lg:w-1/2 flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-4">Parent Testimonials</h2>
-          <TestimonialsCarousel />
-        </div>
-      </div>
+      </AnimatedSection>
 
       {/* Dashboard Mockup (Parents Section) */}
       <ParentsValueSection />
