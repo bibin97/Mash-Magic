@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// eslint-disable-next-line
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
