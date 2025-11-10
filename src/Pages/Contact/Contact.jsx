@@ -16,9 +16,9 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#e0f7fa] to-[#fff] text-black font-sans py-14 px-6">
+    <main className="min-h-screen  text-black font-sans py-14 px-6">
       {/* Header */}
-      <h1 className="text-5xl font-extrabold mb-1 text-center text-black">Contact Us</h1>
+      <h1 className="text-5xl bg-gradient-to-b font-extrabold mb-1 text-center text-black">Contact Us</h1>
       
       {/* Problem Section */}
       <motion.section
@@ -42,13 +42,13 @@ export default function Contact() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="mb-14 max-w-5xl mx-auto grid md:grid-cols-2 gap-8"
       >
-        <div className="bg-white/70 p-8 rounded-2xl shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500">
+        <div className="bg-white/70 p-8 rounded-2xl shadow-2xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 hover:bg-gradient-to-r from-teal-500 to-teal-800 cursor-pointer">
           <h3 className="text-2xl font-bold mb-4 text-black">Real-Time Dashboard</h3>
           <p className="text-black mb-4">
             Track attendance, performance, and exam results instantly with a clear dashboard.
           </p>
         </div>
-        <div className="bg-white/70 p-8 rounded-2xl shadow-md transform hover:scale-105 hover:-translate-y-2 transition-all duration-500">
+        <div className="bg-white/70 p-8 rounded-2xl shadow-md transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 hover:bg-gradient-to-r from-teal-500 to-teal-800 cursor-pointer">
           <h3 className="text-2xl font-bold mb-4 text-black">Weekly Updates</h3>
           <p className="text-black mb-4">
             Stay informed with weekly updates directly to your email. Transparent communication is our priority.
@@ -73,7 +73,7 @@ export default function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="max-w-3xl mx-auto bg-white/80 p-12 rounded-2xl shadow-2xl"
+        className="max-w-3xl mx-auto bg-gradient-gray-600  p-12 rounded-2xl shadow-2xl"
       >
         <h2 className="text-3xl font-bold mb-6 text-center text-black">Get in Touch</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -84,7 +84,7 @@ export default function Contact() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="p-3 rounded-xl bg-teal-100 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
+            className="p-3 rounded-xl bg-white text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
           />
           <input
             type="email"
@@ -93,7 +93,7 @@ export default function Contact() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="p-3 rounded-xl bg-teal-100 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
+            className="p-3 rounded-xl bg-white text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
           />
           <textarea
             name="message"
@@ -102,11 +102,11 @@ export default function Contact() {
             onChange={handleChange}
             required
             rows={5}
-            className="p-3 rounded-xl bg-teal-100 text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
+            className="p-3 rounded-xl bg-white text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-teal-700"
           ></textarea>
           <button
             type="submit"
-            className="mt-4 px-6 py-3 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-700 transition duration-300"
+            className="mt-4 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-teal-700 transition duration-300"
           >
             Send Message
           </button>

@@ -36,7 +36,7 @@ const BLOG_POSTS = [
 
 export default function Blog() {
   return (
-     <main className="min-h-screen bg-gradient-to-br from-[#e0f7fa] to-[#fff] py-14 px-6 font-sans">
+     <main className="min-h-screen  py-14 px-6 font-sans">
       <AnimatedSection className="max-w-6xl mx-auto mb-12 text-center">
         <h1 className="text-5xl font-extrabold text-teal-900 mb-4">Blogs</h1>
         <p className="text-lg text-gray-700">
@@ -48,7 +48,7 @@ export default function Blog() {
           <a
             href={post.link}
             key={idx}
-            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col"
+            className="group bg-white rounded-2xl overflow-hidden hover:bg-gradient-to-r from-teal-500 to-teal-800 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col"
           >
             <img
               src={post.image}
