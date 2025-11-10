@@ -1,22 +1,26 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { BookOpen, Brain, Users, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Users } from "lucide-react";
 import mentorship from "../../assets/mentorship.jpeg";
+
 export default function About() {
   return (
-    <div className="bg-gradient-teal-700 text-black-900 font-rounded min-h-screen text-gray-800  overflow-hidden">
-      
+    <div className="bg-gradient-teal-700 text-black font-rounded min-h-screen text-gray-800 overflow-hidden">
       {/* PAGE HEADING */}
       <section className="py-16 text-center">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-4xl text- font-rounded text-gray-900"
+          className="text-4xl md:text-4xl font-rounded text-gray-900"
         >
-         <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent font-bold">About</span>
-          <span className=" bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent"> Us</span>
+          <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent font-bold">
+            About
+          </span>
+          <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
+            {" "}
+            Us
+          </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -24,7 +28,8 @@ export default function About() {
           transition={{ duration: 1, delay: 0.2 }}
           className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
         >
-          Discover how we empower every child to succeed through mentorship, science, and personalized learning.
+          Discover how we empower every child to succeed through mentorship,
+          science, and personalized learning.
         </motion.p>
       </section>
 
@@ -43,11 +48,20 @@ export default function About() {
           </h2>
 
           <p className="text-lg text-black leading-relaxed">
-            MASH MAGIC is built to help every child succeed their way. Backed by <strong>10+ years</strong> of education training & sales expertise, we blend <em>science with mentorship</em> to transform learning outcomes.
+            MASH MAGIC is built to help every child succeed their way. Backed by{" "}
+            <strong>10+ years</strong> of education training & sales expertise,
+            we blend <em>science with mentorship</em> to transform learning
+            outcomes.
           </p>
 
           <p className="text-black">
-            It’s not just tuition — it’s a <strong>personalized mentorship platform</strong> designed to adapt to every child’s needs. Supported by <strong>TZaHu – The Sales Hunter</strong> and a skilled team in education sales & student development, we merge <em>pedagogy + technology + accountability</em> to drive true success.
+            It’s not just tuition — it’s a{" "}
+            <strong>personalized mentorship platform</strong> designed to adapt
+            to every child’s needs. Supported by{" "}
+            <strong>TZaHu – The Sales Hunter</strong> and a skilled team in
+            education sales & student development, we merge{" "}
+            <em>pedagogy + technology + accountability</em> to drive true
+            success.
           </p>
 
           <motion.p
@@ -68,11 +82,11 @@ export default function About() {
           viewport={{ once: true }}
           className="md:w-1/2 flex justify-center"
         >
-          <div className="relative group" >
+          <div className="relative group">
             <img
               src={mentorship}
               alt="Founder / Mentor"
-              className="w-96 h-96  object-cover rounded-3xl shadow-2xl border-4 border-cyan-200 group-hover:scale-105 transition-transform duration-500 transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+              className="w-96 h-96 object-cover rounded-3xl shadow-2xl border-4 border-cyan-200 group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 rounded-3xl bg-gray-900/10 group-hover:bg-gray-600/20 transition-all duration-500"></div>
           </div>
@@ -80,7 +94,7 @@ export default function About() {
       </section>
 
       {/* Mission & Icons Section */}
-      <section className="relative bg-gradient-teal-700 text-black py-20 overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,30 +106,55 @@ export default function About() {
             The <span className="text-yellow-400">MASH MAGIC</span> Approach
           </h2>
           <p className="max-w-3xl mx-auto text-black mb-12">
-            We combine pedagogy, technology, and accountability to ensure every learner achieves their fullest potential — guided by expert mentors who care.
+            We combine pedagogy, technology, and accountability to ensure every
+            learner achieves their fullest potential — guided by expert mentors
+            who care.
           </p>
 
+          {/* Flip Cards Grid */}
           <div className="grid md:grid-cols-3 gap-10">
-            {/* Pedagogy */}
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center space-y-4 shadow-lg hover:bg-gradient-to-r from-teal-500 to-teal-800 transition-all duration-300">
-              <BookOpen className="w-12 h-12 text-black" />
-              <h3 className="text-2xl font-semibold">Pedagogy</h3>
-              <p className="text-black-200 text-center">We apply modern learning science to make education efficient and enjoyable.</p>
-            </motion.div>
+            {[
+              {
+                icon: <BookOpen className="w-12 h-12 text-teal-700" />,
+                title: "Pedagogy",
+                desc: "We apply modern learning science to make education efficient and enjoyable.",
+              },
+              {
+                icon: <Brain className="w-12 h-12 text-teal-700" />,
+                title: "Technology",
+                desc: "Smart digital tools personalize the journey of every student for lasting results.",
+              },
+              {
+                icon: <Users className="w-12 h-12 text-teal-700" />,
+                title: "Accountability",
+                desc: "Regular check-ins ensure progress, motivation, and success for every learner.",
+              },
+            ].map((card, idx) => (
+              <div
+                key={idx}
+                className="group perspective w-full h-[280px] cursor-pointer"
+              >
+                <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
+                  {/* Front Side */}
+                  <div className="absolute inset-0 bg-white rounded-2xl shadow-lg flex flex-col justify-center items-center text-center space-y-4 backface-hidden">
+                    {card.icon}
+                    <h3 className="text-2xl font-semibold text-gray-800">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-500 italic">
+                      Hover to know more
+                    </p>
+                  </div>
 
-            {/* Technology */}
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center space-y-4 shadow-lg hover:bg-gradient-to-r from-teal-500 to-teal-800 transition-all duration-300">
-              <Brain className="w-12 h-12 text-black" />
-              <h3 className="text-2xl font-semibold">Technology</h3>
-              <p className="text-black text-center">Smart digital tools personalize the journey of every student for lasting results.</p>
-            </motion.div>
-
-            {/* Accountability */}
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-white/10 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center space-y-4 shadow-lg hover:bg-gradient-to-r from-teal-500 to-teal-800 transition-all duration-300">
-              <Users className="w-12 h-12 text-black" />
-              <h3 className="text-2xl font-semibold">Accountability</h3>
-              <p className="text-black text-center">Regular check-ins ensure progress, motivation, and success for every learner.</p>
-            </motion.div>
+                  {/* Back Side */}
+                  <div className="absolute inset-0 bg-white rounded-2xl shadow-lg rotate-y-180 backface-hidden flex flex-col justify-center items-center text-center p-6">
+                    <p className="text-gray-700 leading-relaxed text-lg">
+                      {card.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </section>
