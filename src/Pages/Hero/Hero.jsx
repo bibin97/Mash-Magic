@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import im1 from "../../assets/im1.jpg";
 import im2 from "../../assets/im2.jpeg";
 import im3 from "../../assets/im3.jpeg";
@@ -6,79 +7,76 @@ import im4 from "../../assets/im4.jpg";
 import Animatedsection from "../../Components/Animations/Animatedsection.jsx";
 import { ClipboardCheck, Star, BookOpen } from "lucide-react";
 
+/* ---------- Modal ---------- */
 function ExamPrepPackModal({ show, onClose }) {
   if (!show) return null;
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50  dark:bg-black/70">
-      <Animatedsection
-        className="
-          rounded-3xl shadow-xl p-8 max-w-2xl w-full flex flex-col items-center relative 
-          bg-white/30 dark:bg-gray-800/30 backdrop-blur-md 
-          transition-all duration-500 
-          hover:scale-105 hover:shadow-2xl 
-          hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-800 hover:text-white
-          hover:shadow-[0_0_30px_rgba(13,148,136,0.6)]
-        "
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/60 backdrop-blur-sm px-4">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="relative rounded-3xl shadow-2xl p-6 sm:p-8 w-full max-w-md sm:max-w-2xl bg-white/90 dark:bg-gray-800/90 backdrop-blur-md border border-gray-200/30 dark:border-gray-700/30"
       >
-        <h2 className="text-2xl md:text-3xl font-extrabold text-center text-gray-800 dark:text-white mb-6">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-8 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
           What's inside the ₹199 Exam Prep Pack?
         </h2>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8 w-full">
-          {/* Mock Exams */}
-          <div className="flex flex-col items-center text-center flex-1 transition-transform duration-300 hover:scale-110">
-            <div className="bg-teal-100 dark:bg-teal-900 p-4 rounded-full mb-2 shadow-sm hover:bg-teal-200 dark:hover:bg-teal-800">
-              <ClipboardCheck className="w-8 h-8 text-teal-700 dark:text-teal-300" />
-            </div>
-            <h3 className="font-bold text-lg text-gray-800 dark:text-white mb-1">Mock Exams</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              Practice real exam questions, get instant feedback.
-            </p>
-          </div>
-
-          {/* Expert Tips */}
-          <div className="flex flex-col items-center text-center flex-1 transition-transform duration-300 hover:scale-110">
-            <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-full mb-2 shadow-sm hover:bg-gray-300 dark:hover:bg-gray-600">
-              <Star className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
-            </div>
-            <h3 className="font-bold text-lg text-gray-800 dark:text-white mb-1">Expert Tips</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              Get strategies from top mentors to boost your scores.
-            </p>
-          </div>
-
-          {/* Personal Progress Tracker */}
-          <div className="flex flex-col items-center text-center flex-1 transition-transform duration-300 hover:scale-110">
-            <div className="bg-green-100 dark:bg-green-900 p-4 rounded-full mb-2 shadow-sm hover:bg-green-200 dark:hover:bg-green-800">
-              <BookOpen className="w-8 h-8 text-green-600 dark:text-green-400" />
-            </div>
-            <h3 className="font-bold text-lg text-yellow-600 dark:text-yellow-400 mb-1">
-              Personal Progress Tracker
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              See your weekly progress with dashboard updates.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+          {[
+            {
+              icon: <ClipboardCheck className="w-8 h-8 text-teal-600" />,
+              title: "Mock Exams",
+              desc: "Practice real exam questions, get instant feedback.",
+            },
+            {
+              icon: <Star className="w-8 h-8 text-yellow-500" />,
+              title: "Expert Tips",
+              desc: "Get strategies from top mentors to boost your scores.",
+            },
+            {
+              icon: <BookOpen className="w-8 h-8 text-green-600" />,
+              title: "Progress Tracker",
+              desc: "See your weekly progress with dashboard updates.",
+            },
+          ].map((item, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center text-center p-4 bg-white/40 dark:bg-gray-700/40 rounded-2xl shadow-md hover:shadow-xl transition-all"
+            >
+              {item.icon}
+              <h3 className="font-bold text-base sm:text-lg text-gray-800 dark:text-white mt-2 mb-1">
+                {item.title}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        <a
-          href="#prep"
-          className="mt-2 bg-gray-800 dark:bg-teal-600 hover:bg-gray-600 dark:hover:bg-teal-700 text-white font-bold px-8 py-3 rounded-full shadow-lg transition hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-        >
-          Get My ₹199 Exam Prep Pack
-        </a>
+        <div className="text-center">
+          <a
+            href="#prep"
+            className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-600 text-white font-bold px-6 sm:px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-yellow-400/40 transition-all"
+          >
+            Get My ₹199 Exam Prep Pack
+          </a>
+        </div>
 
         <button
           onClick={onClose}
-          className="absolute top-2 right-4 text-gray-500 dark:text-gray-300 hover:text-teal-800 dark:hover:text-teal-400 font-bold text-xl transition-transform duration-300 hover:rotate-90"
+          className="absolute top-3 right-5 text-gray-500 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 text-3xl font-bold transition-transform hover:rotate-90"
         >
           ×
         </button>
-      </Animatedsection>
+      </motion.div>
     </div>
   );
 }
 
+/* ---------- Hero Section ---------- */
 export default function Home() {
   const heroImages = [im1, im2, im3, im4];
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -92,66 +90,78 @@ export default function Home() {
   }, [heroImages.length]);
 
   return (
-    <main className="pt-20 max-w-7xl mx-auto mt-2 flex flex-col md:flex-row items-center  transition-colors duration-300">
-      {/* Left: Heading and Text */}
-      <Animatedsection className="md:w-1/2 p-6 flex flex-col justify-center items-start">
-        <h1 className="text-5xl font-extrabold bg-gradient-to-r from-teal-900 to-green-600 dark:from-teal-400 dark:to-green-400 bg-clip-text text-transparent">
-          Every Child Learns Differently. MASH MAGIC Adapts.
-        </h1>
+    <main className="relative pt-24 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10 overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-100 via-white to-green-100 dark:from-gray-900 dark:via-gray-800 dark:to-teal-950 -z-10" />
 
-        <p className="text-lg sm:text-xl text-black  mb-6 font-sans-serif rounded-md">
+      {/* Left Text Section */}
+      <Animatedsection className="w-full lg:w-1/2 flex flex-col justify-center items-start text-left space-y-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-teal-700 to-green-600 dark:from-teal-700 dark:to-green-500 bg-clip-text text-transparent leading-tight"
+        >
+          Every Child Learns Differently.
+          <br />
+          <span className="text-teal-700">MASH MAGIC</span> Adapts.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 max-w-lg"
+        >
           Personalized 1-on-1 coaching for K3–K12 students, powered by proven
           pedagogy and trusted mentorship.
-        </p>
-        
-        <div className="flex flex-wrap gap-4">
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="flex flex-wrap gap-4"
+        >
           <a
             href="#demo"
-            className="bg-gray-800  text-white font-bold px-6 py-2 rounded-full shadow hover:bg-gray-600 dark:hover:bg-teal-700 transition duration-300 ease-in-out"
+            className="px-6 sm:px-8 py-3 bg-gradient-to-r from-teal-700 to-green-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 hover:shadow-teal-500/40 transition-transform"
           >
             Book a Free Demo
           </a>
-          <a
-            href="#prep"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowPackModal(true);
-            }}
-            className="text-black bg-white font-semibold px-6 py-2 rounded-full shadow border border-gray-300 dark:border-gray-600 hover:bg-gradient-to-r hover:from-teal-500 hover:to-teal-800 hover:text-white transition duration-300"
+          <button
+            onClick={() => setShowPackModal(true)}
+            className="px-6 sm:px-8 py-3 bg-white text-gray-800 border border-gray-300 rounded-full font-semibold hover:bg-gradient-to-r hover:from-teal-600 hover:to-teal-800 hover:text-white shadow-md transition-all"
           >
-            Get the ₹199 Exam Prep Pack
-          </a>
-        </div>
+            Get ₹199 Exam Prep Pack
+          </button>
+        </motion.div>
       </Animatedsection>
 
-      {/* Right: Image Carousel */}
-      <Animatedsection
-        className="md:w-1/2 flex flex-col items-center p-4"
-        delay={0.2}
-      >
-        <div className="relative w-full max-w-md h-[280px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-lg overflow-hidden shadow-lg">
+      {/* Right Image Carousel */}
+      <Animatedsection className="w-full lg:w-1/2 flex flex-col items-center">
+        <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] rounded-3xl overflow-hidden shadow-2xl">
           {heroImages.map((img, idx) => (
-            <img
+            <motion.img
               key={idx}
               src={img}
               alt={`Slide ${idx + 1}`}
-              className={`object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-500 ${
+              className={`object-cover w-full h-full absolute top-0 left-0 rounded-3xl transition-opacity duration-700 ${
                 idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
-              style={{ transitionProperty: "opacity" }}
             />
           ))}
         </div>
 
-        {/* Slide dots */}
+        {/* Dots */}
         <div className="flex space-x-2 mt-3">
           {heroImages.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               className={`h-3 rounded-full transition-all ${
-                idx === currentSlide 
-                  ? "bg-teal-700 dark:bg-teal-400 w-6" 
+                idx === currentSlide
+                  ? "bg-teal-700 dark:bg-teal-400 w-6"
                   : "bg-gray-400 dark:bg-gray-600 w-3"
               }`}
             />
@@ -159,7 +169,7 @@ export default function Home() {
         </div>
       </Animatedsection>
 
-      {/* Modal: Exam Prep Pack */}
+      {/* Modal */}
       <ExamPrepPackModal
         show={showPackModal}
         onClose={() => setShowPackModal(false)}

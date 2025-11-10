@@ -14,10 +14,10 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-4xl font-rounded text-gray-900"
         >
-          <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent font-bold">
+          <span className="bg-gradient-to-r from-teal-700 to-green-600 bg-clip-text text-transparent font-bold">
             About
           </span>
-          <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-teal-700 to-green-600 bg-clip-text text-transparent">
             {" "}
             Us
           </span>
@@ -26,7 +26,7 @@ export default function About() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto"
+          className="mt-4 text-lg text-white max-w-2xl mx-auto"
         >
           Discover how we empower every child to succeed through mentorship,
           science, and personalized learning.
@@ -43,7 +43,7 @@ export default function About() {
           viewport={{ once: true }}
           className="md:w-1/2 space-y-6"
         >
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-teal-700 to-green-600 bg-clip-text text-transparent">
             Our Story — <span className="">Mentorship</span>
           </h2>
 
@@ -102,8 +102,8 @@ export default function About() {
           viewport={{ once: true }}
           className="container mx-auto px-6 text-center"
         >
-          <h2 className="text-4xl font-bold mb-6 text-teal-800">
-            The <span className="text-yellow-400">MASH MAGIC</span> Approach
+          <h2 className="text-4xl font-bold mb-6 text-teal-700">
+            The <span className="text-green-600">MASH MAGIC</span> Approach
           </h2>
           <p className="max-w-3xl mx-auto text-black mb-12">
             We combine pedagogy, technology, and accountability to ensure every

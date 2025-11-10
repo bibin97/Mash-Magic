@@ -13,7 +13,7 @@ import CustomCursor from "./Components/customcursor/Customcursor";
 export default function App() {
   return (
     <ThemeProvider>
-      <div className="bg-gradient-to-br from-white to-gray-500 dark:from-gray-700 dark:to-gray-800 min-h-screen font-Rounded transition-colors duration-500">
+      <div className="bg-gradient-to-br from-gray-200 to-gray-500 dark:from-gray-700 dark:to-gray-800 min-h-screen font-Rounded transition-colors duration-500">
         <Navbar />
         
         <main>

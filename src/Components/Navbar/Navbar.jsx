@@ -18,9 +18,10 @@ export default function Navbar() {
 
   return (
     <AnimatedSection
-      className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 
-                 bg-white/90 dark:bg-gray-900/90 text-black dark:text-white 
-                 backdrop-blur-md shadow-md transition-colors duration-500"
+      className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4
+                 bg-transparent backdrop-blur-xl 
+                 text-black dark:text-white
+                 transition-all duration-500 shadow-none"
       delay={0}
       initial={{ opacity: 0, y: -40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +30,11 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className="flex items-center">
-        <img src={logo} alt="MASH MAGIC" className="h-9 mr-4" />
+        <img
+          src={logo}
+          alt="MASH MAGIC"
+          className="h-9 mr-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+        />
       </div>
 
       {/* Navigation Links */}
@@ -38,7 +43,7 @@ export default function Navbar() {
           <li key={item.target}>
             <a
               href={`#${item.target}`}
-              className="hover:text-teal-600 dark:hover:text-teal-400 transition"
+              className="hover:text-teal-700 dark:hover:text-teal-700 transition-colors duration-300"
             >
               {item.name}
             </a>
@@ -48,17 +53,17 @@ export default function Navbar() {
 
       {/* Theme Toggle + CTA */}
       <div className="flex items-center gap-4">
-        {/* Theme Toggle Button */}
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full bg-gray-200 text-black dark:bg-gray-800 dark:text-white 
-                     hover:bg-gray-300 dark:hover:bg-gray-700 transition-all duration-300"
+          className="p-2 rounded-full bg-white/20 dark:bg-gray-800/30 text-black dark:text-white 
+                     hover:bg-white/30 dark:hover:bg-gray-700/40 transition-all duration-300"
           aria-label="Toggle dark mode"
           title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
         >
           {theme === "dark" ? (
             <svg
-              className="w-6 h-6 text-white"
+              className="w-6 h-6 text-yellow-300"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -84,8 +89,8 @@ export default function Navbar() {
         {/* CTA Button */}
         <a
           href="#demo"
-          className="px-6 py-2 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg 
-                     shadow-md transition-all duration-300"
+          className="px-6 py-2 bg-gradient-to-r from-teal-700 to-green-700 text-white font-semibold rounded-full 
+                     hover:scale-105 shadow-lg hover:shadow-teal-500/40 transition-all duration-300"
         >
           Book a Free Demo
         </a>
